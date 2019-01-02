@@ -1,0 +1,14 @@
+$TTL	604800
+@	IN	SOA	ns1.dominio.com.br. root.dominio.com.br. (
+			 2018080801	; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@		IN	NS	ns1.dominio.com.br.
+ns1		IN	A	172.16.100.203
+206		IN	PTR	mail.dominio.com.br.
+
+#para o servidor de email nao cair como spam ele precisa estar configurado tambem no dns reverso
+#apagar os comentarios

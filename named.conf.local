@@ -1,0 +1,33 @@
+#configuracao de zona
+
+zone "dominio.com.br" {
+	type master;
+        file "db.dominio";
+	allow-transfer { 192.168.1.x; };
+	notify yes;
+	also-notify { 192.168.1.x; };
+};
+
+zone "1.168.192.in-addr.arpa" {
+	type master;
+        file "rev.dominio";
+	allow-transfer { 192.168.1.x; };
+	notify yes;
+	also-notify { 192.168.1.x; };
+};
+
+#type pode ser master ou slave depende do servidor
+#allow-transfer restringe a transferencia de zona para servidores autorizados usa o ip do servidor secundario caso nao tenha apague a linha
+#also-notify determina se o servidor primario notifica o secundario usa o ip do servidor secundario caso nao tenha apague a linha
+#notify yes determina se notifica o servidor secundario se nao tiver secundario apague a linha
+
+#debian 
+#nome do arquivo named.conf.local 
+#esse arquivo fica dentro de /etc/bind/
+
+#redhat
+#nome do arquivo named.conf 
+#esse arquivo fica dentro de /etc/
+
+#comando named-checkconf verifica a sintaxe
+
